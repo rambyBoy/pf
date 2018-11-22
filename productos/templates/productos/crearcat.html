@@ -1,0 +1,21 @@
+{% extends 'productos/layout.html' %}
+
+{% block content %}
+<h3 class="center-align red lighten-3">Crear categoría</h3>
+
+<div class="card">
+    <div class="card-content">
+        <h2>Ingresa los datos de la categoría</h2>
+    </div>
+    <div class="card-action">
+        <form action="" method="POST"> {% csrf_token %}
+            <label>Nombre de la categoria:<input type="text" placeholder="Nombre de la categoría" name="name" required></label>
+            <label>Descripción: <input type="text" required name="desc" placeholder="Descripción"></label><br>
+            <center><button class="btn" type="submit">Guardar</button></center>
+        </form>
+    </div>
+</div>
+<br>
+<a href="/categorias/" class="btn">Ir atrás</a><br>
+
+{% endblock %}

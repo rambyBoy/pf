@@ -1,0 +1,33 @@
+{% extends 'productos/layout.html' %}
+
+{% block content %}
+<h3 class="center-align red lighten-3">{{title}}</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Costo</th>
+            <th>Disponibles</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        {% for producto in productos %}
+        <tr>
+            <td class="collection-item"><a href="/productos/edit/{{producto.id}}">{{producto.name}}</a></td>
+            <td class="collection-item">${{producto.cost}}</td>
+            <td class="collection-item">{{producto.quantity}}</td>
+            <td class="collection-item"><a class="btn" href="/productos/eliminar/{{producto.id}}">Eliminar</a></td>
+            <td class="collection-item"><a class="btn" href="/productos/comprar/{{producto.id}}">Comprar</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+<br><br>
+<a style="display:block" class="center-align" href="/crear"><button class="btn">Crear producto</button></a><br>
+
+{% endblock %}

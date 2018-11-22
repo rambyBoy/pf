@@ -1,0 +1,30 @@
+{% extends 'productos/layout.html' %}
+
+{% block content %}
+<h3 class="center-align red lighten-3">{{title}}</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>Categoría</th>
+            <th>Descripción</th>
+            <th></th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        {% for categoria in categorias %}
+        <tr>
+            <td class="collection-item"><a href="/productos/catedit/{{categoria.id}}">{{categoria.name}}</a></td>
+            <td class="collection-item">{{categoria.desc}}</td>
+            <td class="collection-item"><a class="btn" href="/productos/catdelete/{{categoria.id}}">Eliminar</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+
+<br><br>
+<a style="display:block" class="center-align" href="/crearcat"><button class="btn">Crear categoría</button></a><br>
+
+{% endblock %}

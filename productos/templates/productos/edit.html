@@ -1,0 +1,21 @@
+{% extends 'productos/layout.html' %}
+
+{% block content %}
+<h3 class="center-align red lighten-3">Productos</h3>
+
+<div class="card">
+    <div class="card-content">
+        <h2>Editar: {{producto.name}}</h2>
+    </div>
+    <div class="card-action">
+        <form action="" method="POST"> {% csrf_token %}
+            <label>Disponibles: <input type="number" value="{{producto.quantity}}" required name="quantity"></label><br>
+            <label>Costo: <input type="number" value="{{producto.cost}}" required name="cost"></label><br>
+            <center><button class="btn" type="submit">Guardar</button></center>
+        </form>
+    </div>
+</div>
+<br>
+<a href="/productos/" class="btn">Ir atrás</a><br>
+
+{% endblock %}
